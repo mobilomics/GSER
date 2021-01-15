@@ -138,29 +138,31 @@ Once GSER is in your PATH variable, you can execute it as
 
 **Important consideration**
 
-The CONFIG file is **tab-separated, 2 column, plain text file** in the following format
+The CONFIG file is **tab-separated, 3 column, plain text file** in the following format
 
     K kmersize1,kmersize2,kmersize3,..,kmersizeN
-    Group1  fullpath to fastqfile
-    Group1  fullpath to another fastqfile
-    Group2  fullpath to fastqfile 
+    FONT	fontsize for plots
+    Group1  fullpath to fastqfile	shapeforplot
+    Group1  fullpath to another fastqfile	shapeforplot
+    Group2  fullpath to fastqfile 	shapeforplot
 
 Line 1 must have K in the first column, and a comma-separated list of integer numbers to be used as k-mer sizes
-Line 2 and onwards must have a Group specification and then the full path (obtained with readlink -e) to the FASTQ file corresponding to that group
+Line 2 must have specified a font size for the plots
+Line 3 and onwards must have a Group specification and then the full path (obtained with readlink -e) to the FASTQ file corresponding to that group. The third column must be a valid ggplot2 point shape (available shapes are shown here: https://www.datanovia.com/en/blog/ggplot-point-shapes-best-tips/)
 
 Example CONFIG file for *Xenopus laevis* genome data available at SRA Study ID SRP071264 (https://trace.ncbi.nlm.nih.gov/Traces/study1/?acc=SRP071264):
 
     K       10,11,12,13,14,15,16,17,18,19,20,30,40,50,60,70,80,90,100,110,120,130,140,150
-    PE_225  /home/user/SRP071264/SRR3210959_1.fastq
-    PE_225  /home/user/SRP071264/SRR3210959_2.fastq
-    PE_450  /home/user/SRP071264/SRR3210971_1.fastq
-    PE_450  /home/user/SRP071264/SRR3210971_2.fastq
-    PE_900  /home/user/SRP071264/SRR3210972_1.fastq
-    PE_900  /home/user/SRP071264/SRR3210972_2.fastq
-    MP_1500 /home/user/SRP071264/SRR3210973_1.fastq
-    MP_1500 /home/user/SRP071264/SRR3210973_2.fastq
-    MP_4000 /home/user/SRP071264/SRR3210974_1.fastq
-    MP_4000 /home/user/SRP071264/SRR3210974_2.fastq
+    PE_225  /home/user/SRP071264/SRR3210959_1.fastq	16
+    PE_225  /home/user/SRP071264/SRR3210959_2.fastq	16
+    PE_450  /home/user/SRP071264/SRR3210971_1.fastq	16
+    PE_450  /home/user/SRP071264/SRR3210971_2.fastq	16
+    PE_900  /home/user/SRP071264/SRR3210972_1.fastq	16
+    PE_900  /home/user/SRP071264/SRR3210972_2.fastq	16
+    MP_1500 /home/user/SRP071264/SRR3210973_1.fastq	16
+    MP_1500 /home/user/SRP071264/SRR3210973_2.fastq	16
+    MP_4000 /home/user/SRP071264/SRR3210974_1.fastq	16
+    MP_4000 /home/user/SRP071264/SRR3210974_2.fastq	16
 
 In this example, Genome Size Estimations will be done for k-mer sizes from 10 to 150, in steps of 10. 5 groups were defined according to the type of library (PE: Paired-End and MP: Mate Pair) and insert size (225, 450, 900 for PE, and 1500, 4000 for MP).
 

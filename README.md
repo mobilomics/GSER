@@ -109,16 +109,16 @@ Source page: https://plotly.com/r/getting-started/
 
 Download the GSER tarball, and uncompress it:
 
-	$ wget https://github.com/mobilomics/GSER/blob/master/gser_v1.0.6.tar.gz
-  $ tar -xvzf gser_v1.0.6.tar.gz
+	$ wget https://github.com/mobilomics/GSER/blob/master/gser_v1.0.8.tar.gz
+  $ tar -xvzf gser_v1.0.8.tar.gz
 
 Grant execution permissions to the pipeline script:
 
-    $ chmod u+x gser_v1.0.6/gser_v1.0.6.sh
+    $ chmod u+x gser_v1.0.8/gser_v1.0.8.sh
 
 For simplicity of use, add the GSER full path to your PATH environment variable. First get the full path:
 
-    $ readlink -e gser_v1.0.6/gser_v1.0.6.sh
+    $ readlink -e gser_v1.0.8/gser_v1.0.8.sh
     
 Then copy the output of the previous command, and add it to the PATH variable:
 
@@ -129,7 +129,7 @@ _________________________________________________
 
 Once GSER is in your PATH variable, you can execute it as
 
-    $ gser_v1.0.6.sh CONFIG THREADS OUTPUTDIR 
+    $ gser_v1.0.8.sh CONFIG THREADS OUTPUTDIR 
     
     CONFIG :  Configuration file in the format described below
     THREADS : Number of threads to use
